@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * Implements: hook_schema().
+ *
+ * Define the table used for image slider settings.
+ *
+ * Schema API:
+ *   https://api.drupal.org/api/drupal/includes%21database%21schema.inc/group/schemaapi/7
+ * Data types:
+ *   https://www.drupal.org/node/159605
+ */
+function eatlas_image_slider_schema() {
+	$schema['eatlas_image_slider'] = array(
+		'description' => 'The eAtlas image slider configuration table.',
+		'fields' => array(
+			'bid' => array(
+				'description' => 'The primary identifier for an image slider (auto-increment ID).',
+				'type' => 'serial',
+				'unsigned' => TRUE,
+				'not null' => TRUE
+			),
+			'name' => array(
+				'description' => 'The image slider name (use for the block name).',
+				'type' => 'varchar',
+				'length' => 255,
+				'not null' => TRUE
+			),
+			'view' => array(
+				'description' => 'The view used to select nodes to show in the image slider. The nodes needs to have a "Preview Image".',
+				'type' => 'varchar',
+				'length' => 255,
+				'not null' => TRUE
+			),
+			'viewdisplay' => array(
+				'description' => 'The view display for the selected view.',
+				'type' => 'varchar',
+				'length' => 255,
+				'not null' => TRUE
+			)
+		),
+		'primary key' => array('bid')
+	);
+
+	return $schema;
+}
+
+/**
+ * Implements: hook_uninstall().
+ *
+ * Remove every blocks created by this module
+ */
+function eatlas_image_slider_uninstall() {
+	db_delete('block')->condition('module', 'eatlas_image_slider')->execute();
+}
+
+?>

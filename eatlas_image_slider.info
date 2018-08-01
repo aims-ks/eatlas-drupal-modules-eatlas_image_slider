@@ -1,0 +1,26 @@
+; $Id$
+name = eAtlas Image slider
+description = Image slider.
+core = 7.x
+
+files[] = eatlas_image_slider.module
+
+stylesheets[all][] = css/eatlas_image_slider.css
+
+; FlexSlider 2
+stylesheets[all][] = ../../../libraries/flexslider2/flexslider.css
+scripts[] = ../../../libraries/flexslider2/jquery.flexslider-min.js
+scripts[] = js/load_flexslider2.js
+
+package = eAtlas
+
+configure = admin/config/eatlas/eatlas_image_slider
+
+dependencies[] = eatlas_commons (>=1.4)
+dependencies[] = views
+
+; Attributes used by the update module.
+; There fields needs to be removed if the module is migrated to Drupal.org
+project status url = "http://drupal.eatlas.org.au/modules/eatlas"
+version = "7.x-1.4"
+project = "eatlas_image_slider"

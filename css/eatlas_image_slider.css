@@ -1,0 +1,25 @@
+/* Fixes */
+
+.flexslider {
+	line-height: normal;
+}
+
+/* Public interface */
+
+/* Restore the look n feel of the edition menu */
+.eatlas-image-slider ul.contextual-links li {
+	height: auto;
+	background-color: transparent;
+}
+
+.eatlas-image-slider .flex-viewport .slides {
+	max-width: none !important;
+}
+
+/* Admin interface */
+
+/* Add some space between "actions" (edit, delete) */
+.eatlas-image-slider-spacer {
+	display: inline-block;
+	width: 2em;
+}
